@@ -1,0 +1,69 @@
+﻿@using CoreApp.Models
+@model Customer
+<!-- Yukarıdaki modeli bekler -->
+
+Adı: @Model.Adi <br />
+Soyadı: @Model.Soyadi <br/>
+Telefon: @Model.TelefonNo
+
+
+razor (et simgesi) ile direkt olarak yazarsın yada et ve süslü parantez
+
+@{
+    string name = "kaan";
+    int age = 15;
+
+    int Calculate(int sayi, int sayi2)
+    {
+        return sayi + sayi2;
+    }
+
+}
+
+Merhabalar ben bu yerlerde yeniyim.
+<p>
+    Hoşgeldin, @name
+    @{
+        //if (age < 18)
+        //{
+        //    <strong>18 yaşından küçüksünüz</strong>
+        //}
+
+        <strong>
+        @(age<18?"18 yaşından küçüksün":"18 yaşından büyüksün") 
+        //html kodları araya girince et işareti tekrar olmalı
+        //Bu if yapısının ismi "one line if control"
+        </strong>
+
+    }
+</p>
+<p>
+    @Calculate(5,9)
+</p>
+
+
+    @*@{
+        for(int i = 0; i < 500; i++)
+        {
+            <p>@i.ToString()</p>
+
+        }
+    }*@
+
+
+    <h1>View ile taşıma</h1>
+        <p> @ViewBag.AdSoyad
+      viewbag ismi ile data ismi aynı olmamalı sadece view ler için geçerli  
+      @ViewData["AdSoyad"]        
+        </p>
+        <h1>Temp ile</h1>
+        <p>@TempData["Yas"]</p>
+
+        //Data transfer 4 şekildedir: ViewBag,ViewData,TempData,Model
+
+
+
+
+
+
+
